@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\Library\\App.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Library\\App.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\ImGui\\imgui.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:ImGui\\imgui.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\Source\\SceneFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\SceneFactory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.cpp",
+              "DocumentMoniker": "D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\Library\\App.cpp",
+              "RelativeDocumentMoniker": "Library\\App.cpp",
+              "ToolTip": "D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\Library\\App.cpp",
+              "RelativeToolTip": "Library\\App.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-09T05:26:28.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "imgui.cpp",
+              "DocumentMoniker": "D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\ImGui\\imgui.cpp",
+              "RelativeDocumentMoniker": "ImGui\\imgui.cpp",
+              "ToolTip": "D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\ImGui\\imgui.cpp",
+              "RelativeToolTip": "ImGui\\imgui.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-09T05:26:22.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SceneFactory.cpp",
+              "DocumentMoniker": "D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\Source\\SceneFactory.cpp",
+              "RelativeDocumentMoniker": "Source\\SceneFactory.cpp",
+              "ToolTip": "D:\\\u3072\u306A\u5F62\\\u3072\u306A\u5F62\\project\\Source\\SceneFactory.cpp",
+              "RelativeToolTip": "Source\\SceneFactory.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-09T05:26:11.743Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
