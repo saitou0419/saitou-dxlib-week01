@@ -1,4 +1,5 @@
 #include "TitleScene.h"
+#include "../Library/SceneManager.h" //¡‚Ç‚Ì‰æ–Ê‚ğ•\¦‚·‚é‚©ŠÇ—
 
 TitleScene::TitleScene()
 {
@@ -6,7 +7,7 @@ TitleScene::TitleScene()
 	m_logoImage = LoadGraph("date/image/START.png");
 }
 
-TitleScene::~TitleScene()
+TitleScene::~TitleScene()  //ƒV[ƒ“Ø‚è‘Ö‚¦@ƒƒ‚ƒŠÁ‹
 {   
 	DeleteGraph(m_titleImage);
 	DeleteGraph(m_logoImage);
@@ -25,9 +26,7 @@ void TitleScene::Update()
 
 void TitleScene::Draw()
 {
-	DrawExtendGraph//‰æ‘œ‚ÌŠg‘åk¬@–½—ß
-	(200, 50, 1080, 650, m_titleImage, TRUE);
+	DrawExtendGraph(200, 50, 1080, 650, m_titleImage, TRUE);//‰æ‘œ‚ÌŠg‘åk¬@–½—ß
 
-	DrawExtendGraph//ƒƒS(Start)‚ÌŠg‘åk¬@–½—ß
-	(240, 540, 950, 630, m_logoImage, TRUE);
+	DrawExtendGraph(240, 540, 950, 630, m_logoImage, TRUE);//ƒƒS(Start)‚ÌŠg‘åk¬@–½—ß
 }
