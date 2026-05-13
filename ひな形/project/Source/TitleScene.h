@@ -13,4 +13,8 @@ public:
 	~TitleScene();
 	void Update() override;
 	void Draw() override;
+
+private:
+	int m_titleImage;//タイトル画面　ハンドル
+	int m_logoImage; //ロゴ
 };
