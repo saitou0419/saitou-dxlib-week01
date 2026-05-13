@@ -1,16 +1,21 @@
 #include "TitleScene.h"
+#include "../Library/SceneManager.h" //¡‚Ç‚Ì‰æ–Ê‚ğ•\¦‚·‚é‚©ŠÇ—
 
 TitleScene::TitleScene()
 {
+	m_titleImage = LoadGraph("date/image/Game Logo01.png");
+	m_logoImage = LoadGraph("date/image/START.png");
 }
 
-TitleScene::~TitleScene()
-{
+TitleScene::~TitleScene()  //ƒV[ƒ“Ø‚è‘Ö‚¦@ƒƒ‚ƒŠÁ‹
+{   
+	DeleteGraph(m_titleImage);
+	DeleteGraph(m_logoImage);
 }
 
 void TitleScene::Update()
 {
-	if (CheckHitKey(KEY_INPUT_P)) {
+	if (CheckHitKey(KEY_INPUT_SPACE)) {
 		SceneManager::ChangeScene("PLAY");
 	}
 	if (CheckHitKey(KEY_INPUT_ESCAPE)) {
@@ -21,9 +26,7 @@ void TitleScene::Update()
 
 void TitleScene::Draw()
 {
-	extern const char* Version();
-	DrawString(0, 20, Version(), GetColor(255,255,255));
-	DrawString(0, 0, "TITLE SCENE", GetColor(255,255,255));
-	DrawFormatString(100, 100, GetColor(255,255,255), "%4.1f", 1.0f / Time::DeltaTime());
-	DrawString(100, 400, "Push [P]Key To Play", GetColor(255, 255, 255));
+	DrawExtendGraph(200, 50, 1080, 650, m_titleImage, TRUE);//‰æ‘œ‚ÌŠg‘åk¬@–½—ß
+
+	DrawExtendGraph(240, 540, 950, 630, m_logoImage, TRUE);//ƒƒS(Start)‚ÌŠg‘åk¬@–½—ß
 }
