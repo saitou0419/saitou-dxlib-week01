@@ -4,6 +4,10 @@
 /// <summary>
 /// ゲームプレイのシーンを制御する
 /// </summary>
+
+class Field;
+class Player;
+
 class PlayScene : public SceneBase
 {
 public:
@@ -11,4 +15,8 @@ public:
 	~PlayScene();
 	void Update() override;
 	void Draw() override;
+private:
+	
+	Field* field;
+	Player* player;
 };
