@@ -1,13 +1,13 @@
 #pragma once
 #include "../Library/GameObject.h"
 
-
+class Field;
 class Player : public GameObject
 {
 public:
 	Player(int sx, int sy);
 	~Player();
-	void Update() override;
+	void Update(Field* field);
 	void Draw() override;
 private:
 	static const int ANIM_FRAME = 4;

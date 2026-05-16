@@ -26,9 +26,11 @@ Player::~Player()
 
 }
 
-void Player::Update()//毎フレーム
+void Player::Update(Field* field)//毎フレーム
 {
+	
 	m_animTimer++;
+	
 	
 	if (m_animTimer >= 8)//　８フレーム
 
@@ -53,23 +55,37 @@ void Player::Update()//毎フレーム
 	}
 
 	prevSpace = nowSpace;
-	velocity += 0.7f;//重力
+	onGround = false;
+	velocity += 1.0f;//重力
 
 	y += velocity;//移動！！
 
 
 
 	/*(仮)地面*/
-
-	if (y >= 440)
+	int playerIndex = (x + 50) / 150;
+	if (field->GetMap(playerIndex) == 1)
 	{
-		y = 440;
-
-		velocity = 0;
-
-		onGround = true;
+		if (velocity >0&& y>= 440)
+		{
+			y = 440;
+			velocity = 0;
+			onGround = true;
+		}
 	}
-
+	else if (field->GetMap(playerIndex) == 2)
+	{
+		if (velocity>0 && y>= 290)
+		{
+			y = 290;
+			velocity = 0;
+			onGround = true;
+		}
+	}
+	else
+	{
+		onGround = false;
+	}
 
 	/*キャラのカメラアクション*/
 	if (CheckHitKey(KEY_INPUT_S))

@@ -31,6 +31,10 @@ Field::~Field()//íœ
 	DeleteGraph(m_groundImage);
 
 }
+int Field::GetMap(int index)
+{
+	return m_map[index];
+}
 
 void Field::Update()
 

@@ -10,6 +10,8 @@ public:
 	void Update();
 	void Draw();
 
+	int GetMap(int index);
+
 private:
 	 
 	static const int MAP_SIZE = 60;  //マップの大きさ　固定

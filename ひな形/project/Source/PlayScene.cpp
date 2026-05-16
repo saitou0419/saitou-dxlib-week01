@@ -18,7 +18,7 @@ void PlayScene::Update()
 {
 
 	field->Update();
-	player->Update();
+	player->Update(field);
 
 	if (CheckHitKey(KEY_INPUT_T))
 	{
@@ -28,8 +28,8 @@ void PlayScene::Update()
 
 void PlayScene::Draw()
 {
-	DrawString(0, 0, "TEST", GetColor(255, 255, 255));
+	/*DrawString(0, 0, "TEST", GetColor(255, 255, 255));
 
 	field->Draw();
-	player->Draw();
+	player->Draw();*/
 }
