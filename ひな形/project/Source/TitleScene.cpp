@@ -3,8 +3,9 @@
 
 TitleScene::TitleScene()
 {
-	m_titleImage = LoadGraph("date/image/Game Logo01.png");
-	m_logoImage = LoadGraph("date/image/START.png");
+	m_titleImage = LoadGraph("data/image/Game Logo01.png");
+	m_logoImage = LoadGraph("data/image/START.png");
+	m_haikeiImage = LoadGraph("data/image/haikei.png");
 }
 
 TitleScene::~TitleScene()  //ƒV[ƒ“Ø‚è‘Ö‚¦@ƒƒ‚ƒŠÁ‹
@@ -26,8 +27,9 @@ void TitleScene::Update()
 
 void TitleScene::Draw()
 {
-	DrawBox(0, 0, 1920, 760, GetColor(170, 100, 255), TRUE);//”wŒiƒJƒ‰[
+	//DrawBox(0, 0, 1920, 760, GetColor(170, 100, 255), TRUE);//”wŒiƒJƒ‰[
+	DrawExtendGraph(0, 0, 1920, 760, m_haikeiImage,TRUE);
 	DrawExtendGraph(570, 80, 1350, 680, m_titleImage, TRUE);//‰æ‘œ‚ÌŠg‘åk¬@–½—ß
 
-	DrawExtendGraph(605, 620, 1315, 710, m_logoImage, TRUE);//ƒƒS(Start)‚ÌŠg‘åk¬@–½—ß
+	DrawExtendGraph(590, 600, 1315, 710, m_logoImage, TRUE);//ƒƒS(Start)‚ÌŠg‘åk¬@–½—ß
 }

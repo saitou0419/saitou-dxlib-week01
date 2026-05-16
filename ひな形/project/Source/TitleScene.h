@@ -17,4 +17,5 @@ public:
 private:
 	int m_titleImage;//タイトル画面　ハンドル
 	int m_logoImage; //ロゴ
+	int m_haikeiImage;
 };

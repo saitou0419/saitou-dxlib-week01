@@ -9,12 +9,12 @@ Player::Player(int sx, int sy)//初期設定
 	velocity = 0;//移動スピード
 	onGround = true;
 	isCameraMode = false;
-
+	jumpCount = 0;
 	m_animIndex = 0;
 	m_animTimer = 0;
 
 	
-	LoadDivGraph("date/image/Character 001.png",8, 4, 2, 384, 512, m_hImage);
+	LoadDivGraph("data/image/Character 001.png",8, 4, 2, 384, 512, m_hImage);
 }
 
 Player::~Player()
@@ -47,11 +47,19 @@ void Player::Update(Field* field)//毎フレーム
 	
 	bool nowSpace = CheckHitKey(KEY_INPUT_SPACE);
 
-	if (nowSpace == true &&prevSpace == false &&onGround)
+	if (nowSpace == true &&prevSpace == false &&jumpCount<2)
 	{
-		velocity = -25;
+		if (jumpCount == 0)
+		{
 
-		onGround = false;
+			velocity = -25;
+		}
+		else if (jumpCount == 1)
+		{
+			velocity = -15;
+		}
+		jumpCount++;
+		//onGround = false;
 	}
 
 	prevSpace = nowSpace;
@@ -66,20 +74,24 @@ void Player::Update(Field* field)//毎フレーム
 	int playerIndex = (x + 50) / 150;
 	if (field->GetMap(playerIndex) == 1)
 	{
-		if (velocity >0&& y>= 440)
+		if (velocity >0&& y+220>=610)
 		{
-			y = 440;
+			y = 420;
 			velocity = 0;
 			onGround = true;
+
+			jumpCount = 0;
 		}
 	}
 	else if (field->GetMap(playerIndex) == 2)
 	{
-		if (velocity>0 && y>= 290)
+		if (velocity>0 && y+220>=460)
 		{
-			y = 290;
+			y = 420;
 			velocity = 0;
 			onGround = true;
+
+			jumpCount = 0;
 		}
 	}
 	else

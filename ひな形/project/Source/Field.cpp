@@ -3,8 +3,8 @@
 
 Field::Field()
 {
-	m_bgImage = LoadGraph("date/image/mori.png");
-	m_groundImage = LoadGraph("date/image/tuti02.png");
+	m_bgImage = LoadGraph("data/image/mori.png");
+	m_groundImage = LoadGraph("data/image/tuti02.png");
 	GetGraphSize(m_bgImage, &m_bgWidth, NULL);
 	m_bgScrollX = 0;
 	m_groundScrollX = 0;
