@@ -8,21 +8,18 @@ Field::Field()
 	GetGraphSize(m_bgImage, &m_bgWidth, NULL);
 	m_bgScrollX = 0;
 	m_groundScrollX = 0;
+	m_timer = 0;
 	
 
 	/*地形*/
 
 	for (int i = 0; i < MAP_SIZE; i++)
 	{
-		m_map[i] = 1;
-		if (rand() % 5 == 0)
+		
 		{
-			m_map[i] = 0;
+			m_map[i] = 1;
 		}
-		if (rand() % 12 == 0)
-		{
-			m_map[i] = 2;
-		}
+		
 	}
 	
 }
@@ -36,23 +33,48 @@ Field::~Field()//削除
 }
 
 void Field::Update()
+
 {
+	m_timer++;
 	m_bgScrollX -= 2;
 
 	if (m_bgScrollX <= -m_bgWidth)
 	{
 		m_bgScrollX= 0;
 	}
-	m_groundScrollX -= 5;
-	if (m_groundScrollX <= -64)
+	m_groundScrollX -= 9; //地面　1フレーム
+	if (m_groundScrollX <= -150)
 	{
 		m_groundScrollX = 0;
+		for (int i = 0; i < MAP_SIZE - 1; i++)
+		{
+			m_map[i] = m_map[i + 1];
+		}
+		if (m_timer < 60)//地形（地面）の速さ　180×１秒　＝６０
+		{
+			m_map[MAP_SIZE - 1] = 1;
+		}
+		else
+		{
+			int r = rand() % 10;
+
+			
+		    if (r == 2)
+			{
+				m_map[MAP_SIZE - 1] = 2;
+			}
+			else
+			{
+				m_map[MAP_SIZE - 1] = 1;
+			}
+		}
 	}
+	
 }
 
 void Field::Draw()
 {
-	//DrawExtendGraph(0, 0, 1280, 611, m_bgImage, TRUE);//背景
+	
 	DrawGraph(m_bgScrollX, 0, m_bgImage, TRUE);
 
 	DrawGraph(m_bgScrollX + m_bgWidth, 0, m_bgImage, TRUE);
@@ -61,11 +83,11 @@ void Field::Draw()
 	for (int i = 0; i < MAP_SIZE; i++)    //地形☆
 	{
 		int drawX;
-		 drawX = i * 64 + m_groundScrollX;
+		 drawX = i * 150 + m_groundScrollX;
 
 		if (m_map[i] == 1)
 		{
-			DrawGraph(drawX, 605, m_groundImage, TRUE);
+			DrawGraph(drawX, 610, m_groundImage, TRUE);
 		}
 
 		if (m_map[i] == 0) 
@@ -74,8 +96,8 @@ void Field::Draw()
 		}
 		if (m_map[i] == 2)
 		{
-			DrawGraph(drawX, 510, m_groundImage, TRUE);
-			DrawGraph(drawX, 605, m_groundImage, TRUE); 
+			DrawGraph(drawX, 460, m_groundImage, TRUE);
+			
 			
 		}
 		
