@@ -26,7 +26,8 @@ void TitleScene::Update()
 
 void TitleScene::Draw()
 {
-	DrawExtendGraph(200, 50, 1080, 650, m_titleImage, TRUE);//‰æ‘œ‚ÌŠg‘åk¬@–½—ß
+	DrawBox(0, 0, 1920, 760, GetColor(170, 100, 255), TRUE);//”wŒiƒJƒ‰[
+	DrawExtendGraph(570, 80, 1350, 680, m_titleImage, TRUE);//‰æ‘œ‚ÌŠg‘åk¬@–½—ß
 
-	DrawExtendGraph(240, 540, 950, 630, m_logoImage, TRUE);//ƒƒS(Start)‚ÌŠg‘åk¬@–½—ß
+	DrawExtendGraph(605, 620, 1315, 710, m_logoImage, TRUE);//ƒƒS(Start)‚ÌŠg‘åk¬@–½—ß
 }

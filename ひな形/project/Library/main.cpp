@@ -107,6 +107,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 			break;
 		}
+		WaitTimer(16);//16ƒ~ƒŠ•b ‘Ò‚Â
 		ScreenFlip();
 		ClearDrawScreen();
 		AppDraw();
