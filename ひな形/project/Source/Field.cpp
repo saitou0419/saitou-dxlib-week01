@@ -35,6 +35,10 @@ int Field::GetMap(int index)
 {
 	return m_map[index];
 }
+int Field::GetGroundScrollX()
+{
+	return m_groundScrollX;
+}
 
 void Field::Update()
 
@@ -44,7 +48,7 @@ void Field::Update()
 
 	if (m_bgScrollX <= -m_bgWidth)
 	{
-		m_bgScrollX= 0;
+		m_bgScrollX = 0;
 	}
 	m_groundScrollX -= 9; //地面　1フレーム
 	if (m_groundScrollX <= -150)
@@ -54,27 +58,26 @@ void Field::Update()
 		{
 			m_map[i] = m_map[i + 1];
 		}
-		if (m_timer < 60)//地形（地面）の速さ　180×１秒　＝６０
-		{
+		if (m_timer < 120)//地形（地面）の速さ
 			m_map[MAP_SIZE - 1] = 1;
+	}
+	else
+	{
+		int r = rand() % 10;
+
+
+		if (r == 0)
+		{
+			m_map[MAP_SIZE - 1] = 2;
 		}
 		else
 		{
-			int r = rand() % 10;
-
-			
-		    if (r == 2)
-			{
-				m_map[MAP_SIZE - 1] = 2;
-			}
-			else
-			{
-				m_map[MAP_SIZE - 1] = 1;
-			}
+			m_map[MAP_SIZE - 1] = 1;
 		}
 	}
-	
 }
+
+	
 
 void Field::Draw()
 {

@@ -7,6 +7,7 @@
 
 class Field;
 class Player;
+class Enemy;
 
 class PlayScene : public SceneBase
 {
@@ -19,4 +20,5 @@ private:
 	
 	Field* field;
 	Player* player;
+	Enemy* enemy;
 };

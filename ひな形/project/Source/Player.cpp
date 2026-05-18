@@ -63,7 +63,7 @@ void Player::Update(Field* field)//毎フレーム
 	}
 
 	prevSpace = nowSpace;
-	onGround = false;
+	
 	velocity += 1.0f;//重力
 
 	y += velocity;//移動！！
@@ -71,7 +71,7 @@ void Player::Update(Field* field)//毎フレーム
 
 
 	/*(仮)地面*/
-	int playerIndex = (x + 50) / 150;
+	int playerIndex = (x + 50-field->GetGroundScrollX()*-1) / 150;
 	if (field->GetMap(playerIndex) == 1)
 	{
 		if (velocity >0&& y+220>=610)
@@ -87,17 +87,14 @@ void Player::Update(Field* field)//毎フレーム
 	{
 		if (velocity>0 && y+220>=460)
 		{
-			y = 420;
+			y = 270;
 			velocity = 0;
 			onGround = true;
 
 			jumpCount = 0;
 		}
 	}
-	else
-	{
-		onGround = false;
-	}
+	
 
 	/*キャラのカメラアクション*/
 	if (CheckHitKey(KEY_INPUT_S))

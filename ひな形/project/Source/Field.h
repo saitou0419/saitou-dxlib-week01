@@ -11,6 +11,7 @@ public:
 	void Draw();
 
 	int GetMap(int index);
+	int GetGroundScrollX();
 
 private:
 	 
