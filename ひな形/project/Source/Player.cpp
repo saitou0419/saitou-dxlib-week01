@@ -13,9 +13,14 @@ Player::Player(int sx, int sy)//‰Šúİ’è
 	m_animIndex = 0;
 	m_animTimer = 0;
 
+	isDamage = false; 
+	m_damageIndex = 0;
+	m_damageTimer = 0;
 	
-	LoadDivGraph("data/image/Character 001.png",8, 4, 2, 384, 512, m_hImage);
+	LoadDivGraph("data/image/Character 001.png", 8, 4, 2, 384, 512, m_hImage);
 }
+
+
 
 Player::~Player()
 {

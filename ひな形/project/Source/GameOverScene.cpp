@@ -11,4 +11,16 @@ GameOverScene::~GameOverScene()
 {
 	DeleteGraph(gameoverImage);
 }
-void GameOverScene::Draw() { DrawGraph(0, 0, gameoverImage, TRUE); }
+void GameOverScene::Update()
+{
+	if (CheckHitKey(KEY_INPUT_T))
+	{
+		SceneManager::ChangeScene("TITLE");
+	}
+}
+void GameOverScene::Draw() 
+{ 
+	DrawBox(0, 0, 1920, 760, GetColor(170, 100, 255), TRUE);
+	DrawGraph(-100, 150, gameoverImage, TRUE);
+//	DrawExtendGraph(260,55, 1400, 705, gameoverImage, TRUE);
+}

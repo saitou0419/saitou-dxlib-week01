@@ -7,7 +7,7 @@ public:
 	GameOverScene();
 	~GameOverScene();
 
-//	void Update();
+	void Update();
 	void Draw();
 
 private:

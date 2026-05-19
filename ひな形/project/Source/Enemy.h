@@ -10,6 +10,12 @@ public:
     void Update();
     void Draw();
 
+    float GetX()
+    {
+        return x;
+    }
+   
+
 private:
     static const int ANIM_FRAME = 6;
 

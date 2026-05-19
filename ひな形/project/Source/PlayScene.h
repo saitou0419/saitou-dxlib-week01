@@ -21,4 +21,8 @@ private:
 	Field* field;
 	Player* player;
 	Enemy* enemy;
+
+	int shakePowet;
+	int shakeTimer;
+
 };
