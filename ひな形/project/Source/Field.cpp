@@ -81,10 +81,11 @@ void Field::Update()
 
 void Field::Draw()
 {
-	
+	DrawBox(0, 0, 1920, 760, GetColor(26,20 , 10), TRUE);//地面背景（深い黄系の色）
 	DrawGraph(m_bgScrollX, 0, m_bgImage, TRUE);
 
 	DrawGraph(m_bgScrollX + m_bgWidth, 0, m_bgImage, TRUE);
+	
 
 
 	for (int i = 0; i < MAP_SIZE; i++)    //地形☆

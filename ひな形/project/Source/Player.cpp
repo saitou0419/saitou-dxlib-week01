@@ -12,12 +12,13 @@ Player::Player(int sx, int sy)//‰ŠúÝ’è
 	jumpCount = 0;
 	m_animIndex = 0;
 	m_animTimer = 0;
-
+	
 	isDamage = false; 
 	m_damageIndex = 0;
 	m_damageTimer = 0;
 	
 	LoadDivGraph("data/image/Character 001.png", 8, 4, 2, 384, 512, m_hImage);
+	//LoadDivGraph("data/image/korobu.png", 8, 4, 2, 384, 512, m_damageImage);
 }
 
 
@@ -33,7 +34,26 @@ Player::~Player()
 
 void Player::Update(Field* field)//–ˆƒtƒŒ[ƒ€
 {
-	
+		
+	if (isDamage == true)
+		{
+			m_damageTimer++;
+
+		if (m_damageTimer >= 10)
+		{
+				m_damageIndex++;
+
+	    	if (m_damageIndex >= 4)
+			{
+					m_damageIndex = 3;
+			}
+
+				m_damageTimer = 0;
+		}
+
+			return;
+	}
+
 	m_animTimer++;
 	
 	
@@ -126,8 +146,15 @@ void Player::Draw()
 	{
 		DrawExtendGraph((int)x, (int)y, (int)x + 220, (int)y + 220, m_hImage[4 + m_animIndex], TRUE);
 	}
-
+		
+	
+		
 }
+
+
+
+
+
 
 
 

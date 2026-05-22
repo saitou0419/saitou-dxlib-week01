@@ -21,8 +21,10 @@ private:
 	Field* field;
 	Player* player;
 	Enemy* enemy;
-
+	bool isGameOver;
+	int gameOverTimer;
 	int shakePowet;
 	int shakeTimer;
+	int score;
 
 };

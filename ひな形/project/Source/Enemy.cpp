@@ -14,6 +14,7 @@ Enemy::Enemy(int sx, int sy)
 	isAlive = true;
 
 	LoadDivGraph("data/image/obake.png", 6, 6,1, 178, 150, m_image);
+	scored = false;
 	
 	
 }
@@ -34,6 +35,7 @@ void Enemy::Update()
 		if (respawnTimer >= 180)
 		{
 			x = 2200;
+			scored = false;
 			y = 500;
 
 			isAlive = true;
@@ -80,4 +82,14 @@ void Enemy::Draw()
 	{
 		DrawExtendGraph((int)x, (int)y, (int)x + 120, (int)y + 120, m_image[m_animIndex], TRUE);
 	}
+}
+
+bool Enemy::GetScored()
+{
+	return scored;
+}
+
+void Enemy::SetScored(bool flag)
+{
+	scored = flag;
 }

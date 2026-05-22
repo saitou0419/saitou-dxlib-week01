@@ -13,6 +13,8 @@ public:
 	int GetMap(int index);
 	int GetGroundScrollX();
 
+	
+
 private:
 	 
 	static const int MAP_SIZE = 60;  //マップの大きさ　固定

@@ -14,7 +14,8 @@ public:
     {
         return x;
     }
-   
+    bool GetScored();
+    void SetScored(bool flag);
 
 private:
     static const int ANIM_FRAME = 6;
@@ -27,5 +28,6 @@ private:
     float y;
 
     bool isAlive;
+    bool scored;
 
 };
