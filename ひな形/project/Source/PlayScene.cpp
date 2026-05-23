@@ -16,6 +16,13 @@ PlayScene::PlayScene()
 	gameOverTimer = 0;
 	score = 0;
 
+	scoreFont = CreateFontToHandle("Arial", 40, 3);
+	scoreTimer = 0;
+
+	ruleImage = LoadGraph("data/image/ru-ru.png");
+	ruleAlpha = 255;
+	ruleTimer = 0;
+	showRule = true;
 }
 
 PlayScene::~PlayScene()
@@ -59,12 +66,34 @@ void PlayScene::Update()
 			SceneManager::ChangeScene("GAMEOVER");
 		}
 	}
-
+	
 	if (isGameOver == false)
 	{
-	
+		scoreTimer++;
+
+		if (scoreTimer >= 10)
+		{
 			score++;
+
+			scoreTimer = 0;
+		}
 	}
+	if (showRule == true)
+	{
+		ruleTimer++;
+
+		if (ruleTimer >= 260)//ÉãÅ[ÉãâÊëúÇÃïbêî
+		{
+			ruleAlpha -= 5;
+			if (ruleAlpha <= 0)
+			{
+				ruleAlpha = 0;
+				showRule = false;
+			}
+		}
+	}
+	
+
 
 	if (CheckHitKey(KEY_INPUT_T))
 	{
@@ -90,6 +119,14 @@ void PlayScene::Draw()
 	player->Draw();
 
 	enemy->Draw();
-	DrawFormatString(50, 50, GetColor(255,255,255), "SCORE : %05d", score);
+
+    DrawFormatStringToHandle(1500,50,GetColor(255, 255, 255),scoreFont,"SCORE : %05d",score);
+
+	if (showRule == true)
+	{
+		SetDrawBlendMode(DX_BLENDMODE_ALPHA, ruleAlpha);
+		DrawExtendGraph(250, 50, 1650, 750, ruleImage, TRUE);
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+	}
 	
 }

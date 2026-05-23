@@ -26,5 +26,12 @@ private:
 	int shakePowet;
 	int shakeTimer;
 	int score;
+	int scoreFont;
+	int scoreTimer;
+
+	int ruleImage;
+	int ruleAlpha;
+	int ruleTimer;
+	bool showRule;
 
 };
