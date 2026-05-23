@@ -52,6 +52,8 @@
     </ClCompile>
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\Field.cpp" />
+    <ClCompile Include="Source\Enemy.cpp" />
+    <ClCompile Include="Source\GameOverScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Screen.h" />
@@ -120,6 +122,8 @@
       <Filter>PlayScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Field.h" />
+    <ClInclude Include="Source\Enemy.h" />
+    <ClInclude Include="Source\GameOverScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Library">
