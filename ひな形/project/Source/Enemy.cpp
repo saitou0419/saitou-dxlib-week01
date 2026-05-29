@@ -15,7 +15,7 @@ Enemy::Enemy(int sx, int sy)
 
 	LoadDivGraph("data/image/obake.png", 6, 6,1, 178, 150, m_image);
 	scored = false;
-	
+	speed = 10;
 	
 }
 
@@ -43,7 +43,7 @@ void Enemy::Update()
 		}
 		return;
 	}
-	x -= 9;
+	x -= speed;
 	if (CheckHitKey(KEY_INPUT_S))
 	{
 		if (x <= 450 && x >= 150)
@@ -92,4 +92,13 @@ bool Enemy::GetScored()
 void Enemy::SetScored(bool flag)
 {
 	scored = flag;
+}
+
+void Enemy::SetAlive(bool flag)
+{
+	isAlive = flag;
+}
+
+void Enemy::SetSpeed(int s)
+{
 }

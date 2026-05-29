@@ -14,8 +14,14 @@ public:
     {
         return x;
     }
+    float GetY()
+    {
+        return y;
+    }
     bool GetScored();
     void SetScored(bool flag);
+    void SetAlive(bool flag);
+    void SetSpeed(int s);
 
 private:
     static const int ANIM_FRAME = 6;
@@ -24,6 +30,7 @@ private:
     int m_animIndex;
     int m_animTimer;
     int respawnTimer;
+    int speed;
     float x;
     float y;
 

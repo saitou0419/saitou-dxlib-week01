@@ -28,10 +28,19 @@ private:
 	int score;
 	int scoreFont;
 	int scoreTimer;
+	int flashAlpha;
 
 	int ruleImage;
 	int ruleAlpha;
 	int ruleTimer;
+	int shutterSE;
+	int shotCount;
 	bool showRule;
+
+	bool isFlash;
+
+
+	
+
 
 };

@@ -27,7 +27,7 @@ void TitleScene::Update()
 
 void TitleScene::Draw()
 {
-	//DrawBox(0, 0, 1920, 760, GetColor(170, 100, 255), TRUE);//”wŒiƒJƒ‰[
+
 	DrawExtendGraph(0, 0, 1920, 760, m_haikeiImage,TRUE);
 	DrawExtendGraph(570, 80, 1350, 680, m_titleImage, TRUE);//‰æ‘œ‚ÌŠg‘åk¬@–½—ß
 

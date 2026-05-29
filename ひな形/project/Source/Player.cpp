@@ -18,7 +18,7 @@ Player::Player(int sx, int sy)//‰Šúİ’è
 	m_damageTimer = 0;
 	
 	LoadDivGraph("data/image/Character 001.png", 8, 4, 2, 384, 512, m_hImage);
-	//LoadDivGraph("data/image/korobu.png", 8, 4, 2, 384, 512, m_damageImage);
+	
 }
 
 
@@ -146,9 +146,6 @@ void Player::Draw()
 	{
 		DrawExtendGraph((int)x, (int)y, (int)x + 220, (int)y + 220, m_hImage[4 + m_animIndex], TRUE);
 	}
-		
-	
-		
 }
 
 

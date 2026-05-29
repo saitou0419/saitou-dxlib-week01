@@ -3,7 +3,7 @@
 
 Field::Field()
 {
-	m_bgImage = LoadGraph("data/image/mori.png");
+	m_bgImage = LoadGraph("data/image/mori01.png");
 	m_groundImage = LoadGraph("data/image/tuti02.png");
 	GetGraphSize(m_bgImage, &m_bgWidth, NULL);
 	m_bgScrollX = 0;
@@ -78,17 +78,16 @@ void Field::Update()
 }
 
 	
-
 void Field::Draw()
 {
-	DrawBox(0, 0, 1920, 760, GetColor(26,20 , 10), TRUE);//ínñ îwåiÅiê[Ç¢â©ånÇÃêFÅj
+	DrawBox(0, 0, 1920, 760, GetColor(26,20 , 10), TRUE);//ínñ â∫ÇÃîwåiÅiê[Ç¢â©ånÇÃêFÅj
 	DrawGraph(m_bgScrollX, 0, m_bgImage, TRUE);
 
 	DrawGraph(m_bgScrollX + m_bgWidth, 0, m_bgImage, TRUE);
 	
 
 
-	for (int i = 0; i < MAP_SIZE; i++)    //ínå`Åô
+	for (int i = 0; i < MAP_SIZE; i++)    //ínå`!!
 	{
 		int drawX;
 		 drawX = i * 150 + m_groundScrollX;

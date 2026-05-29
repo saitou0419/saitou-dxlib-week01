@@ -9,7 +9,6 @@ public:
 	~Player();
 	void Update(Field* field);
 	void Draw() override;
-	//void SetDamage(bool flag);
 	float GetY()
 	{
 		return y;

@@ -11,6 +11,7 @@ PlayScene::PlayScene()
 	player = new Player(200, 420);
 	enemy = new Enemy(10000, 500);//出現　位置
 
+	shutterSE = LoadSoundMem("data/sound/Camera.mp3");
 	isGameOver = false;
 
 	gameOverTimer = 0;
@@ -23,11 +24,18 @@ PlayScene::PlayScene()
 	ruleAlpha = 255;
 	ruleTimer = 0;
 	showRule = true;
+	shotCount = 0;
+	
+	isFlash = false;
+
+	flashAlpha = 0;
+	
+
 }
 
 PlayScene::~PlayScene()
 {
-	
+	//無し
 }
 
 void PlayScene::Update()
@@ -45,7 +53,6 @@ void PlayScene::Update()
 		}
 		if (player->GetY() >= 200 && player->GetY() <= 320)
 		{
-			//SceneManager::ChangeScene("GAMEOVER");
 			isGameOver = true;
 		}
 	}
@@ -77,6 +84,7 @@ void PlayScene::Update()
 
 			scoreTimer = 0;
 		}
+
 	}
 	if (showRule == true)
 	{
@@ -101,13 +109,33 @@ void PlayScene::Update()
 	}
 	if (CheckHitKey(KEY_INPUT_S))
 	{
-		if (enemy->GetX() <= 450 &&enemy->GetX() >= 150)
+		if (enemy->GetX() <= 450 &&enemy->GetX() >= 150 && player->GetY() >= 350)
 		{
 			if (enemy->GetScored() == false)
 			{
 				score += 100;
+				shotCount++;
+				if (shotCount >= 5)
+				{
+					enemy->SetSpeed(20);
+					isFlash = true; 
+					flashAlpha = 255;
+					shotCount = 0;
+				}
+
 				enemy->SetScored(true);
+				enemy->SetAlive(false);
+				PlaySoundMem(shutterSE, DX_PLAYTYPE_BACK);
 			}
+		}
+	}
+	if (isFlash == true)
+	{
+		flashAlpha -= 10;
+		if (flashAlpha <= 0)
+		{
+			flashAlpha = 0;
+			isFlash = false;
 		}
 	}
 }
@@ -120,7 +148,7 @@ void PlayScene::Draw()
 
 	enemy->Draw();
 
-    DrawFormatStringToHandle(1500,50,GetColor(255, 255, 255),scoreFont,"SCORE : %05d",score);
+    DrawFormatStringToHandle(1500,50,GetColor(255, 255, 255),scoreFont,"SCORE : %05d",score);//スコア表示座標
 
 	if (showRule == true)
 	{
@@ -128,5 +156,15 @@ void PlayScene::Draw()
 		DrawExtendGraph(250, 50, 1650, 750, ruleImage, TRUE);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
-	
+	if (isFlash == true)
+	{
+		
+		SetDrawBlendMode(	DX_BLENDMODE_ALPHA,flashAlpha);
+
+		DrawBox(0,0,1920,760,GetColor(255, 255, 255),TRUE);
+
+		SetDrawBlendMode(DX_BLENDMODE_NOBLEND,	0);
+	}
+
 }
+

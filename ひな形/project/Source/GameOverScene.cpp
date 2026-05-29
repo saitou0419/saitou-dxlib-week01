@@ -22,5 +22,4 @@ void GameOverScene::Draw()
 { 
 	DrawBox(0, 0, 1920, 760, GetColor(170, 150, 255), TRUE);
 	DrawGraph(-100, 150, gameoverImage, TRUE);
-//	DrawExtendGraph(260,55, 1400, 705, gameoverImage, TRUE);
 }
