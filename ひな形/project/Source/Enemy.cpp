@@ -46,10 +46,10 @@ void Enemy::Update()
 	x -= speed;
 	if (CheckHitKey(KEY_INPUT_S))
 	{
-		if (x <= 450 && x >= 150)
+		/*if (x <= 450 && x >= 150)
 		{
 			isAlive = false;
-		}
+		}*/
 	}
 	m_animTimer++;
 	if (m_animTimer >= 20)
@@ -101,4 +101,5 @@ void Enemy::SetAlive(bool flag)
 
 void Enemy::SetSpeed(int s)
 {
+	speed = s;
 }

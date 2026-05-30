@@ -10,29 +10,26 @@ int PlayScene::highScore = 0;
 PlayScene::PlayScene()
 {
 	field = new Field();
-	player = new Player(200, 420);
-	enemy = new Enemy(10000, 500); //出現　位置
+	player = new Player(200, 420); //キャラ出現　位置
+	enemy = new Enemy(10000, 500); //お化け出現　位置
 
 	shutterSE = LoadSoundMem("data/sound/Camera.mp3");
-	isGameOver = false;
+	isGameOver = false;   //まだゲームオーバーではない
 
-	gameOverTimer = 0;
+
+	//↓タイマー・スコア・スコアタイマーを最初　０にする
+	gameOverTimer = 0;   
 	score = 0;
 	scoreTimer = 0;
 
-	scoreFont = CreateFontToHandle("Arial", 40, 3);
-	scoreTimer = 0;
-
+	scoreFont = CreateFontToHandle("Arial", 40, 3);//スコア表示フォント
 	ruleImage = LoadGraph("data/image/ru-ru01.png");
-	ruleAlpha = 255;
-	ruleTimer = 0;
-	showRule = true;
-	shotCount = 0;
-	score = 0;
-	//highScore = 0;
-	isFlash = false;
-
-	flashAlpha = 0;
+	ruleAlpha = 255;     // ルール画像　最初は完全表示　255→すべて表示　０→透明
+	ruleTimer = 0;      //　ルール画像表示を数えるタイマー
+	showRule = true;    //　画像表示
+	shotCount = 0;      //　撮影回数　０回
+	isFlash = false;    //　フラッシュ　OFF
+	flashAlpha = 0;     //  フラッシュ透明　０
 	
 
 }
@@ -44,10 +41,12 @@ PlayScene::~PlayScene()
 
 void PlayScene::Update()
 {
-
+	//↓　背景・プレイヤー・おばけ　を動かす
 	field->Update();
 	player->Update(field);
 	enemy->Update();
+
+
 	if (enemy->GetX() <= 300 && enemy->GetX() >= 120 && player->GetY() >= 350)//おばけの判定
 	{
 		if (player->GetY() >= 350)
@@ -61,7 +60,7 @@ void PlayScene::Update()
 		}
 	}
 	int playerIndex = (200 + 50 - field->GetGroundScrollX()) / 150;
-	if (field->GetMap(playerIndex) == 2)
+	if (field->GetMap(playerIndex) == 2)//高台衝突
 	{
 		if (player->GetY() >= 380 && player->GetY() <= 420) //地面の当たり判定
 		{
@@ -80,7 +79,7 @@ void PlayScene::Update()
 	
 	if (isGameOver == false)
 	{
-		scoreTimer++;
+		scoreTimer++;   //スコア計算
 
 		if (scoreTimer >= 10)
 		{
@@ -117,19 +116,19 @@ void PlayScene::Update()
 	}
 	if (CheckHitKey(KEY_INPUT_S))
 	{
-		if (enemy->GetX() <= 450 &&enemy->GetX() >= 150 && player->GetY() >= 350)
+		if (enemy->GetX() <= 400 &&enemy->GetX() >= 200 && player->GetY() >= 350)//お化けが撮影範囲内か
 		{
 			if (enemy->GetScored() == false)
 			{
-				score += 100;
+				score += 100;//写真　＋１００
 				shotCount++;
-				if (shotCount >= 5)
+				if (shotCount >= 5)//５回以上撮影
 				{
-					enemy->SetSpeed(20);
-					field->AddSpeed(1);
+					enemy->SetSpeed(12);//速度＋12
+					field->AddSpeed(1);//背景スクロール＋１
 					isFlash = true; 
 					flashAlpha = 255;
-					shotCount = 0;
+					shotCount = 0;//回数リセット
 					
 				}
 
