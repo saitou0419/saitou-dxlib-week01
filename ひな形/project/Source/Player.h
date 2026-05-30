@@ -15,22 +15,17 @@ public:
 	}
 
 private:
-	static const int ANIM_FRAME = 4;
-	int m_hImage[8];
-	int m_animIndex;//今の画像番号
-	int m_animTimer;//待ち時間（切り替え）時間
-	int jumpCount;//2段ジャンプ
+	static const int ANIM_FRAME = 4;   //アニメーション
+	int m_hImage[8];    //画像を保存する
+	int m_animIndex;    //今の画像番号
+	int m_animTimer;    //待ち時間（切り替え）時間
+	int jumpCount      ;//2段ジャンプ
 
-  
-	bool isDamage;
-	int m_damageIndex;
-	int m_damageTimer;
-
-	float x, y;
-	float velocity;
+	float x, y;         //プレイヤー位置
+	float velocity;     //縦方向の速さ
 
 	
-	bool onGround;
-	bool isCameraMode;
-	bool prevSpace;
+	bool onGround;      //地面
+	bool isCameraMode;  //カメラ
+	bool prevSpace;     //スペース
 };

@@ -5,6 +5,8 @@
 #include "GameOverScene.h"
 #include "../Library/SceneManager.h"
 
+int PlayScene::highScore = 0;
+
 PlayScene::PlayScene()
 {
 	field = new Field();
@@ -16,16 +18,18 @@ PlayScene::PlayScene()
 
 	gameOverTimer = 0;
 	score = 0;
+	scoreTimer = 0;
 
 	scoreFont = CreateFontToHandle("Arial", 40, 3);
 	scoreTimer = 0;
 
-	ruleImage = LoadGraph("data/image/ru-ru.png");
+	ruleImage = LoadGraph("data/image/ru-ru01.png");
 	ruleAlpha = 255;
 	ruleTimer = 0;
 	showRule = true;
 	shotCount = 0;
-	
+	score = 0;
+	//highScore = 0;
 	isFlash = false;
 
 	flashAlpha = 0;
@@ -59,7 +63,7 @@ void PlayScene::Update()
 	int playerIndex = (200 + 50 - field->GetGroundScrollX()) / 150;
 	if (field->GetMap(playerIndex) == 2)
 	{
-		if (player->GetY() >= 330 && player->GetY() <= 420) //地面の当たり判定
+		if (player->GetY() >= 380 && player->GetY() <= 420) //地面の当たり判定
 		{
 			SceneManager::ChangeScene("GAMEOVER");
 			isGameOver = true;
@@ -85,6 +89,10 @@ void PlayScene::Update()
 			scoreTimer = 0;
 		}
 
+	}
+	if (score > highScore)
+	{
+		highScore = score;
 	}
 	if (showRule == true)
 	{
@@ -149,13 +157,13 @@ void PlayScene::Draw()
 	player->Draw();
 
 	enemy->Draw();
-
-    DrawFormatStringToHandle(1500,50,GetColor(255, 255, 255),scoreFont,"SCORE : %05d",score);//スコア表示座標
+	DrawFormatStringToHandle(1570, 20, GetColor(255, 255, 0), scoreFont, "HI :%07d", highScore);//HIスコア
+    DrawFormatStringToHandle(1570,70,GetColor(255, 255, 255),scoreFont,"SCORE : %05d",score);//スコア表示座標
 
 	if (showRule == true)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, ruleAlpha);
-		DrawExtendGraph(250, 50, 1650, 750, ruleImage, TRUE);
+		DrawExtendGraph(410, 30,1510, 730,ruleImage,TRUE);
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 	}
 	if (isFlash == true)

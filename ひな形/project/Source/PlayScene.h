@@ -21,26 +21,19 @@ private:
 	Field* field;
 	Player* player;
 	Enemy* enemy;
-	bool isGameOver;
-	int gameOverTimer;
-	int shakePowet;
-	int shakeTimer;
-	int score;
-	int scoreFont;
-	int scoreTimer;
-	int flashAlpha;
+	bool isGameOver;       //ゲームオーバー
+	int gameOverTimer;    //ゲームオーバー待ち時間
+	int score;           // スコア
+	static int highScore; // HI
+	int scoreFont;       //スコアフォント
+	int scoreTimer;     //スコア増加速度
+	int flashAlpha;    //途中のフラッシュ（白）
 
-	int ruleImage;
-	int ruleAlpha;
-	int ruleTimer;
-	int shutterSE;
-	int shotCount;
-	bool showRule;
-
-	bool isFlash;
-
-
-	
-
-
+	int ruleImage;     //画像（ルール）
+	int ruleAlpha;    //ルール　途中の透明度
+	int ruleTimer;    //ルール表示の時間
+	int shutterSE;    //シャッター音のSE
+	int shotCount;    //撮影（お化けの数）
+	bool showRule;    //ルール表示管理
+	bool isFlash;     //フラッシュ表示管理
 };

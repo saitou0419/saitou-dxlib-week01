@@ -10,31 +10,31 @@ public:
     void Update();
     void Draw();
 
-    float GetX()
+    float GetX()     //現在のお化けのX座標
     {
         return x;
     }
-    float GetY()
+    float GetY()    //お化けY座標
     {
         return y;
     }
-    bool GetScored();
-    void SetScored(bool flag);
-    void SetAlive(bool flag);
-    void SetSpeed(int s);
+    bool GetScored();            //　撮影済みかの設定
+    void SetScored(bool flag);   //　撮影済み
+    void SetAlive(bool flag);    //　お化け　　enemy->SetAlive(false);　なら消える
+    void SetSpeed(int s);        //　お化けの速度
 
 private:
-    static const int ANIM_FRAME = 6;
+    static const int ANIM_FRAME = 6;    //アニメーション（お化け）
 
-    int m_image[6];
-    int m_animIndex;
-    int m_animTimer;
-    int respawnTimer;
-    int speed;
-    float x;
-    float y;
+    int m_image[6];      // 画像保存
+    int m_animIndex;     //　表示中の番号
+    int m_animTimer;     //　画像切り替えタイマー
+    int respawnTimer;    //　（再）出現タイマー
+    int speed;          //　　移動速度
+    float x;            //　　画像を保存している変数
+    float y;            //　　　　　　
 
-    bool isAlive;
-    bool scored;
+    bool isAlive;       //　　true  = 表示中 false = 消えている
+    bool scored;       //　　撮影しているかの確認
 
 };
