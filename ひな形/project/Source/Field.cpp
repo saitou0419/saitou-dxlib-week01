@@ -21,7 +21,7 @@ Field::Field()
 		}
 		
 	}
-	
+	speed = 5;
 }
 
 Field::~Field()//削除
@@ -40,11 +40,16 @@ int Field::GetGroundScrollX()
 	return m_groundScrollX;
 }
 
+void Field::AddSpeed(int value)
+{
+	speed += value;
+}
+
 void Field::Update()
 
 {
 	m_timer++;
-	m_bgScrollX -= 2;
+	m_bgScrollX -= speed; //変更前　２
 
 	if (m_bgScrollX <= -m_bgWidth)
 	{
@@ -60,6 +65,22 @@ void Field::Update()
 		}
 		if (m_timer < 120)//地形（地面）の速さ
 			m_map[MAP_SIZE - 1] = 1;
+	}
+	if (speed >= 6)
+	{
+		int r = rand() % 15;
+		if (r == 0)
+		{
+			m_map[MAP_SIZE - 1] = 0;
+		}
+		else if(r <=3)
+		{
+			m_map[MAP_SIZE - 1] = 2;
+		}
+		else
+		{
+			m_map[MAP_SIZE - 1] = 1;
+		}
 	}
 	else
 	{

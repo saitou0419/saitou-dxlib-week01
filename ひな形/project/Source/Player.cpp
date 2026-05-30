@@ -34,29 +34,29 @@ Player::~Player()
 
 void Player::Update(Field* field)//毎フレーム
 {
-		
+
 	if (isDamage == true)
-		{
-			m_damageTimer++;
+	{
+		m_damageTimer++;
 
 		if (m_damageTimer >= 10)
 		{
-				m_damageIndex++;
+			m_damageIndex++;
 
-	    	if (m_damageIndex >= 4)
+			if (m_damageIndex >= 4)
 			{
-					m_damageIndex = 3;
+				m_damageIndex = 3;
 			}
 
-				m_damageTimer = 0;
+			m_damageTimer = 0;
 		}
 
-			return;
+		return;
 	}
 
 	m_animTimer++;
-	
-	
+
+
 	if (m_animTimer >= 8)//　８フレーム
 
 	{
@@ -69,10 +69,10 @@ void Player::Update(Field* field)//毎フレーム
 	}
 
 	//ジャンプ↓
-	
+
 	bool nowSpace = CheckHitKey(KEY_INPUT_SPACE);
 
-	if (nowSpace == true &&prevSpace == false &&jumpCount<2)
+	if (nowSpace == true && prevSpace == false && jumpCount < 2)
 	{
 		if (jumpCount == 0)
 		{
@@ -88,18 +88,21 @@ void Player::Update(Field* field)//毎フレーム
 	}
 
 	prevSpace = nowSpace;
-	
+
 	velocity += 1.0f;//重力
 
 	y += velocity;//移動！！
 
-
+	if (y >= 900)
+	{
+		SceneManager::ChangeScene("GAMEOVER");
+	}
 
 	/*(仮)地面*/
-	int playerIndex = (x + 50-field->GetGroundScrollX()*-1) / 150;
+	int playerIndex = (x + 50 - field->GetGroundScrollX() * -1) / 150;
 	if (field->GetMap(playerIndex) == 1)
 	{
-		if (velocity >0&& y+220>=610)
+		if (velocity > 0 && y + 220 >= 610)
 		{
 			y = 420;
 			velocity = 0;
@@ -107,10 +110,11 @@ void Player::Update(Field* field)//毎フレーム
 
 			jumpCount = 0;
 		}
+		
 	}
 	else if (field->GetMap(playerIndex) == 2)
 	{
-		if (velocity>0 && y+220>=460)
+		if (velocity > 0 && y + 220 >= 460)
 		{
 			y = 270;
 			velocity = 0;
@@ -119,7 +123,10 @@ void Player::Update(Field* field)//毎フレーム
 			jumpCount = 0;
 		}
 	}
-	
+	if (field->GetMap(playerIndex) == 0)
+	{
+		onGround = false;
+	}
 
 	/*キャラのカメラアクション*/
 	if (CheckHitKey(KEY_INPUT_S))
@@ -130,6 +137,7 @@ void Player::Update(Field* field)//毎フレーム
 	{
 		isCameraMode = false;
 	}
+
 }
 	
 

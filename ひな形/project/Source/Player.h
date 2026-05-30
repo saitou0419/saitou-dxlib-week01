@@ -12,7 +12,6 @@ public:
 	float GetY()
 	{
 		return y;
-
 	}
 
 private:
@@ -22,7 +21,7 @@ private:
 	int m_animTimer;//待ち時間（切り替え）時間
 	int jumpCount;//2段ジャンプ
 
-  //  int m_damageImage[4];
+  
 	bool isDamage;
 	int m_damageIndex;
 	int m_damageTimer;
@@ -34,5 +33,4 @@ private:
 	bool onGround;
 	bool isCameraMode;
 	bool prevSpace;
-
 };

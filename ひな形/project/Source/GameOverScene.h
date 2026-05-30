@@ -12,4 +12,6 @@ public:
 
 private:
 	int gameoverImage;
+	int  TImage;
+	int alpha;
 };

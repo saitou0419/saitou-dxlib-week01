@@ -9,7 +9,7 @@ PlayScene::PlayScene()
 {
 	field = new Field();
 	player = new Player(200, 420);
-	enemy = new Enemy(10000, 500);//出現　位置
+	enemy = new Enemy(10000, 500); //出現　位置
 
 	shutterSE = LoadSoundMem("data/sound/Camera.mp3");
 	isGameOver = false;
@@ -118,9 +118,11 @@ void PlayScene::Update()
 				if (shotCount >= 5)
 				{
 					enemy->SetSpeed(20);
+					field->AddSpeed(1);
 					isFlash = true; 
 					flashAlpha = 255;
 					shotCount = 0;
+					
 				}
 
 				enemy->SetScored(true);

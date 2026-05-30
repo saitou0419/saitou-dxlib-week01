@@ -12,7 +12,7 @@ public:
 
 	int GetMap(int index);
 	int GetGroundScrollX();
-
+	void AddSpeed(int value);
 	
 
 private:
@@ -25,6 +25,6 @@ private:
 	int m_bgWidth; //サイズ
 	int m_bgScrollX;//背景スクロール
 	int m_groundScrollX;//地面スクロール
-	
+	int speed;
 	int m_timer;
 };
