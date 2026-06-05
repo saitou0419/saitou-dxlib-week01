@@ -23,18 +23,20 @@ public:
     void SetAlive(bool flag);    //　お化け　　enemy->SetAlive(false);　なら消える
     void SetSpeed(int s);        //　お化けの速度
 
+
 private:
     static const int ANIM_FRAME = 6;    //アニメーション（お化け）
 
     int m_image[6];      // 画像保存
-    int m_animIndex;     //　表示中の番号
+    int m_animIndex;     
     int m_animTimer;     //　画像切り替えタイマー
     int respawnTimer;    //　（再）出現タイマー
     int speed;          //　　移動速度
-    float x;            //　　画像を保存している変数
-    float y;            //　　　　　　
+    float x;           
+    float y;         
 
     bool isAlive;       //　　true  = 表示中 false = 消えている
     bool scored;       //　　撮影しているかの確認
+    bool hardMode;
 
 };

@@ -14,16 +14,17 @@ PlayScene::PlayScene()
 	enemy = new Enemy(10000, 500); //お化け出現　位置
 
 	shutterSE = LoadSoundMem("data/sound/Camera.mp3");
-	isGameOver = false;   //まだゲームオーバーではない
+	
+	isGameOver = false;   
 
 
-	//↓タイマー・スコア・スコアタイマーを最初　０にする
+	//↓タイマー・スコア・スコアタイマーを最初0
 	gameOverTimer = 0;   
 	score = 0;
 	scoreTimer = 0;
 
 	scoreFont = CreateFontToHandle("Arial", 40, 3);//スコア表示フォント
-	ruleImage = LoadGraph("data/image/ru-ru01.png");
+	ruleImage = LoadGraph("data/image/ru-ru.png");
 	ruleAlpha = 255;     // ルール画像　最初は完全表示　255→すべて表示　０→透明
 	ruleTimer = 0;      //　ルール画像表示を数えるタイマー
 	showRule = true;    //　画像表示
@@ -126,6 +127,7 @@ void PlayScene::Update()
 				{
 					enemy->SetSpeed(12);//速度＋12
 					field->AddSpeed(1);//背景スクロール＋１
+					
 					isFlash = true; 
 					flashAlpha = 255;
 					shotCount = 0;//回数リセット

@@ -10,7 +10,7 @@ public:
 	void Update();
 	void Draw();
 
-	int GetMap(int index);        // 指定した場所の地形　（MAP全管理）
+	int GetMap(int index);        // 　MAP　全管理
 	int GetGroundScrollX();       //フィールドのスクロール
 	void AddSpeed(int value);    //速度を増やす
 	

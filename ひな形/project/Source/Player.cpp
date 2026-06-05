@@ -62,7 +62,7 @@ void Player::Update(Field* field)//–ˆƒtƒŒ[ƒ€
 			velocity = -15;
 		}
 		jumpCount++;
-		//onGround = false;
+		
 	}
 
 	prevSpace = nowSpace;

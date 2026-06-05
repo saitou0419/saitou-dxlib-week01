@@ -15,6 +15,7 @@ Enemy::Enemy(int sx, int sy)
 
 	LoadDivGraph("data/image/obake.png", 6, 6,1, 178, 150, m_image);
 	scored = false;
+	hardMode = false;
 	speed = 10;
 	
 }
@@ -42,15 +43,10 @@ void Enemy::Update()
 			respawnTimer = 0;
 		}
 		return;
+		
+		
 	}
 	x -= speed;
-	if (CheckHitKey(KEY_INPUT_S))
-	{
-		/*if (x <= 450 && x >= 150)
-		{
-			isAlive = false;
-		}*/
-	}
 	m_animTimer++;
 	if (m_animTimer >= 20)
 	{
