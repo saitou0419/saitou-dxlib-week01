@@ -8,6 +8,7 @@
 class Field;
 class Player;
 class Enemy;
+class Present;
 
 class PlayScene : public SceneBase
 {
@@ -21,6 +22,7 @@ private:
 	Field* field;
 	Player* player;
 	Enemy* enemy;
+	Present* present;
 	bool isGameOver;       //ゲームオーバー
 	int gameOverTimer;    //ゲームオーバー待ち時間
 	int score;           // スコア
@@ -35,6 +37,12 @@ private:
 	int shutterSE;    //シャッター音のSE
 	int shotCount;    //撮影（お化けの数）
 	int bgm;
+	int presentImage;
+	float presentX;
+	float presentY;
+
+	bool presentAlive;
+	int presentTimer;
 	bool showRule;    //ルール表示管理
 	bool isFlash;     //フラッシュ表示管理
 

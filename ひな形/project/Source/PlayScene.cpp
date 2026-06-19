@@ -14,7 +14,12 @@ PlayScene::PlayScene()
 	enemy = new Enemy(10000, 500); //お化け出現　位置
 
 	shutterSE = LoadSoundMem("data/sound/Camera.mp3");
-	
+	presentImage = LoadGraph("data/image/present.png");
+
+	presentX = 3000;
+	presentY = 500;
+	presentAlive = true;
+	presentTimer = 0;
 	isGameOver = false;   
 
 
@@ -50,7 +55,32 @@ void PlayScene::Update()
 	field->Update();
 	player->Update(field);
 	enemy->Update();
+	if (showRule == false)
+	{
+		if (presentAlive == true)
+		{
+			presentX -= 12;
+		}
+	}
+	if (presentX <= -200)
+	{
+		presentAlive = false;
+		presentTimer = 0;
+	}
 
+	if (presentAlive == false)
+	{
+		presentTimer++;
+
+		if (presentTimer >= 600)
+		{
+			presentX = 2500;
+			presentY = 250;
+
+			presentAlive = true;
+			presentTimer = 0;
+		}
+	}
 
 	if (enemy->GetX() <= 300 && enemy->GetX() >= 120 && player->GetY() >= 350)//おばけの判定
 	{
@@ -61,6 +91,7 @@ void PlayScene::Update()
 		}
 		if (player->GetY() >= 200 && player->GetY() <= 320)
 		{
+			SceneManager::ChangeScene("GAMEOVER");
 			isGameOver = true;
 		}
 	}
@@ -143,6 +174,18 @@ void PlayScene::Update()
 				PlaySoundMem(shutterSE, DX_PLAYTYPE_BACK);
 			}
 		}
+		if (presentAlive == true)
+		{
+			if (presentX <= 400 &&presentX >= 200)
+			{
+				int bonus = rand() % 301 + 200;
+				score += bonus;
+
+				presentAlive = false;
+				presentTimer = 0;
+				PlaySoundMem(shutterSE, DX_PLAYTYPE_BACK);
+			}
+		}
 	}
 	if (isFlash == true)
 	{
@@ -153,6 +196,7 @@ void PlayScene::Update()
 			isFlash = false;
 		}
 	}
+
 }
 
 void PlayScene::Draw()
@@ -162,6 +206,10 @@ void PlayScene::Draw()
 	player->Draw();
 
 	enemy->Draw();
+	if (presentAlive == true)
+	{
+		DrawExtendGraph((int)presentX,(int)presentY,(int)presentX + 200,(int)presentY + 200,presentImage,TRUE);
+	}
 	DrawFormatStringToHandle(1570, 20, GetColor(255, 255, 0), scoreFont, "HI :%07d", highScore);//HIスコア
     DrawFormatStringToHandle(1570,70,GetColor(255, 255, 255),scoreFont,"SCORE : %05d",score);//スコア表示座標
 
