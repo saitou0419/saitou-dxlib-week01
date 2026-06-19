@@ -7,7 +7,7 @@ Ghost Scoop - Personal Project in C++
 
 ##操作方法
 
- ジャンプ  :space
+ ジャンプ  ：space
  
  　　撮影　：sキー
    
