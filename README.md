@@ -7,7 +7,7 @@ Ghost Scoop - Personal Project in C++
 
 ##操作方法
 
- ジャンプ  ：space
+ ジャンプ　：space
  
  　　撮影　：sキー
    
@@ -29,7 +29,7 @@ Ghost Scoop - Personal Project in C++
 ##今後の改善点
 
   ・ゲーム全体の完成度を、もっと高めていきたい。
- 
+  
   ・撮影要素をもっと工夫して、面白さを向上させたい。
   
 　・難易度やスコアバランスを調整。
