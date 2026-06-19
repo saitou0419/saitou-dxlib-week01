@@ -34,6 +34,8 @@ private:
 	int ruleTimer;    //ルール表示の時間
 	int shutterSE;    //シャッター音のSE
 	int shotCount;    //撮影（お化けの数）
+	int bgm;
 	bool showRule;    //ルール表示管理
 	bool isFlash;     //フラッシュ表示管理
+
 };

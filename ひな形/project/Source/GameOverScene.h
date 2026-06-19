@@ -14,4 +14,5 @@ private:
 	int gameoverImage;     //ゲームオーバーの画像番号
 	int  TImage;           
 	int alpha;             //透明度（ふわっとゆっくり現れる演出）
+	int selectSE;
 };

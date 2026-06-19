@@ -31,13 +31,17 @@ PlayScene::PlayScene()
 	shotCount = 0;      //　撮影回数　０回
 	isFlash = false;    //　フラッシュ　OFF
 	flashAlpha = 0;     //  フラッシュ透明　０
-	
+	bgm = LoadSoundMem("data/sound/Ghost.mp3");
+	ChangeVolumeSoundMem(120, bgm);
+	PlaySoundMem(bgm, DX_PLAYTYPE_LOOP);
 
 }
 
 PlayScene::~PlayScene()
 {
-	//無し
+	StopSoundMem(bgm);
+
+	DeleteSoundMem(bgm);
 }
 
 void PlayScene::Update()

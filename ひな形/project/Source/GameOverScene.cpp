@@ -6,6 +6,7 @@ GameOverScene::GameOverScene()
 {
 	gameoverImage = LoadGraph("data/image/Game Over.png");
 	TImage = LoadGraph("data/image/T.png");
+	selectSE = LoadSoundMem("data/sound/botan.mp3");
 	alpha = 0;
 }
 
@@ -21,6 +22,7 @@ void GameOverScene::Update()
 	}
 	if (CheckHitKey(KEY_INPUT_T))
 	{
+		PlaySoundMem(selectSE, DX_PLAYTYPE_BACK);
 		SceneManager::ChangeScene("TITLE");
 	}
 	

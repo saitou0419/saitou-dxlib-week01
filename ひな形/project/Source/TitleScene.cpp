@@ -6,6 +6,7 @@ TitleScene::TitleScene()
 	m_titleImage = LoadGraph("data/image/Game Logo01.png");
 	m_logoImage = LoadGraph("data/image/START.png");
 	m_haikeiImage = LoadGraph("data/image/haikei.png");
+	startSE = LoadSoundMem("data/sound/botan.mp3");
 }
 
 TitleScene::~TitleScene()  //シーン切り替え　メモリ消去
@@ -16,7 +17,9 @@ TitleScene::~TitleScene()  //シーン切り替え　メモリ消去
 
 void TitleScene::Update()
 {
-	if (CheckHitKey(KEY_INPUT_SPACE)) {
+	if (CheckHitKey(KEY_INPUT_SPACE)) 
+	{
+		PlaySoundMem(startSE, DX_PLAYTYPE_BACK);
 		SceneManager::ChangeScene("PLAY");
 	}
 	if (CheckHitKey(KEY_INPUT_ESCAPE)) {
