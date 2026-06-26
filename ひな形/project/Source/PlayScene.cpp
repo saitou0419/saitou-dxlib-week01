@@ -62,7 +62,13 @@ void PlayScene::Update()
 			presentX -= 12;
 		}
 	}
-	if (presentX <= -200)
+
+	/*if (presentX <= -200)
+	{
+		presentAlive = false;
+		presentTimer = 0;
+	}*/
+	if (presentAlive == true && presentX <= -200)
 	{
 		presentAlive = false;
 		presentTimer = 0;
@@ -72,9 +78,9 @@ void PlayScene::Update()
 	{
 		presentTimer++;
 
-		if (presentTimer >= 600)
+		if (presentTimer >= 300)   
 		{
-			presentX = 2500;
+			presentX = 4000;        
 			presentY = 250;
 
 			presentAlive = true;
