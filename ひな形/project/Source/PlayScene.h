@@ -29,7 +29,7 @@ private:
 	static int highScore; // HI
 	int scoreFont;       //スコアフォント
 	int scoreTimer;     //スコア増加速度
-	int flashAlpha;    //途中のフラッシュ（白）
+	int flashAlpha;    //途中のフラッシュ（白?半透明）
 
 	int ruleImage;     //画像（ルール）
 	int ruleAlpha;    //ルール　途中の透明度

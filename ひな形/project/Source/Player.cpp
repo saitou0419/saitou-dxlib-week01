@@ -92,7 +92,7 @@ void Player::Update(Field* field)//–ˆƒtƒŒ[ƒ€
 	}
 	else if (field->GetMap(playerIndex) == 2)
 	{
-		if (velocity > 0 && y + 220 >= 460)
+		if (velocity > 0 && y + 220 >= 450)
 		{
 			y = 270;
 			velocity = 0;

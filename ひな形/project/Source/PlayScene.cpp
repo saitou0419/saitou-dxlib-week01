@@ -101,7 +101,7 @@ void PlayScene::Update()
 	int playerIndex = (200 + 50 - field->GetGroundScrollX()) / 150;
 	if (field->GetMap(playerIndex) == 2)//‚‘äÕ“Ë
 	{
-		if (player->GetY() >= 380 && player->GetY() <= 420) //’n–Ê‚Ì“–‚½‚è”»’è
+		if (player->GetY() >= 400/*380*/ && player->GetY() <= 420) //’n–Ê‚Ì“–‚½‚è”»’è
 		{
 			SceneManager::ChangeScene("GAMEOVER");
 			isGameOver = true;

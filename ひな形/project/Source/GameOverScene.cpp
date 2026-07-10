@@ -25,7 +25,6 @@ void GameOverScene::Update()
 		PlaySoundMem(selectSE, DX_PLAYTYPE_BACK);
 		SceneManager::ChangeScene("TITLE");
 	}
-	
 }
 void GameOverScene::Draw() 
 { 
