@@ -16,8 +16,8 @@ PlayScene::PlayScene()
 	shutterSE = LoadSoundMem("data/sound/Camera.mp3");
 	presentImage = LoadGraph("data/image/present.png");
 
-	presentX = 3000;
-	presentY = 500;
+	presentX = 2000;
+	presentY = 400;
 	presentAlive = true;
 	presentTimer = 0;
 	isGameOver = false;   
@@ -63,11 +63,7 @@ void PlayScene::Update()
 		}
 	}
 
-	/*if (presentX <= -200)
-	{
-		presentAlive = false;
-		presentTimer = 0;
-	}*/
+	
 	if (presentAlive == true && presentX <= -200)
 	{
 		presentAlive = false;
@@ -87,6 +83,7 @@ void PlayScene::Update()
 			presentTimer = 0;
 		}
 	}
+	
 
 	if (enemy->GetX() <= 300 && enemy->GetX() >= 120 && player->GetY() >= 350)//‚¨‚Î‚¯‚Ì”»’è
 	{
