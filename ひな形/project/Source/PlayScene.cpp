@@ -22,18 +22,19 @@ PlayScene::PlayScene()
 	presentTimer = 0;
 	isGameOver = false;   
 
-
+   cameraImage = LoadGraph("data/image/camera.png");
+	
 	//↓タイマー・スコア・スコアタイマーを最初0
 	gameOverTimer = 0;   
 	score = 0;
 	scoreTimer = 0;
 
-	scoreFont = CreateFontToHandle("Arial", 40, 3);//スコア表示フォント
+	scoreFont = CreateFontToHandle("MS Gothic", 40, 3);
 	ruleImage = LoadGraph("data/image/ru-ru.png");
-	ruleAlpha = 255;     // ルール画像　最初は完全表示　255→すべて表示　０→透明
+	ruleAlpha = 255;     
 	ruleTimer = 0;      //　ルール画像表示を数えるタイマー
-	showRule = true;    //　画像表示
-	shotCount = 0;      //　撮影回数　０回
+	showRule = true;    
+	shotCount = 0;      //　撮影回数
 	isFlash = false;    //　フラッシュ　OFF
 	flashAlpha = 0;     //  フラッシュ透明　０
 	bgm = LoadSoundMem("data/sound/Ghost.mp3");
@@ -63,7 +64,7 @@ void PlayScene::Update()
 		}
 	}
 
-	
+
 	if (presentAlive == true && presentX <= -200)
 	{
 		presentAlive = false;
@@ -74,16 +75,16 @@ void PlayScene::Update()
 	{
 		presentTimer++;
 
-		if (presentTimer >= 300)   
+		if (presentTimer >= 300)
 		{
-			presentX = 4000;        
+			presentX = 4000;
 			presentY = 250;
 
 			presentAlive = true;
 			presentTimer = 0;
 		}
 	}
-	
+
 
 	if (enemy->GetX() <= 300 && enemy->GetX() >= 120 && player->GetY() >= 350)//おばけの判定
 	{
@@ -107,15 +108,15 @@ void PlayScene::Update()
 			isGameOver = true;
 		}
 	}
-	if (isGameOver == true) 
+	if (isGameOver == true)
 	{
-		gameOverTimer++; 
-		if (gameOverTimer >= 60) 
+		gameOverTimer++;
+		if (gameOverTimer >= 60)
 		{
 			SceneManager::ChangeScene("GAMEOVER");
 		}
 	}
-	
+
 	if (isGameOver == false)
 	{
 		scoreTimer++;   //スコア計算
@@ -135,17 +136,18 @@ void PlayScene::Update()
 	if (showRule == true)
 	{
 		ruleTimer++;
-
-		if (ruleTimer >= 260)//ルール画像の秒数
+	}
+	if (ruleTimer >= 260)//ルール画像の秒数
+	{
+		ruleAlpha -= 5;
+		if (ruleAlpha <= 0)
 		{
-			ruleAlpha -= 5;
-			if (ruleAlpha <= 0)
-			{
-				ruleAlpha = 0;
-				showRule = false;
-			}
+			ruleAlpha = 0;
+			showRule = false;
 		}
 	}
+
+	
 	
 
 
@@ -161,17 +163,16 @@ void PlayScene::Update()
 			{
 				score += 100;//写真　＋１００
 				shotCount++;
+
 				if (shotCount >= 5)//５回以上撮影
 				{
 					enemy->SetSpeed(12);//速度＋12
 					field->AddSpeed(1);//背景スクロール＋１
-					
-					isFlash = true; 
+
+					isFlash = true;
 					flashAlpha = 255;
 					shotCount = 0;//回数リセット
-					
 				}
-
 				enemy->SetScored(true);
 				enemy->SetAlive(false);
 				PlaySoundMem(shutterSE, DX_PLAYTYPE_BACK);
@@ -199,7 +200,7 @@ void PlayScene::Update()
 			isFlash = false;
 		}
 	}
-
+	
 }
 
 void PlayScene::Draw()
@@ -215,7 +216,10 @@ void PlayScene::Draw()
 	}
 	DrawFormatStringToHandle(1570, 20, GetColor(255, 255, 0), scoreFont, "HI :%07d", highScore);//HIスコア
     DrawFormatStringToHandle(1570,70,GetColor(255, 255, 255),scoreFont,"SCORE : %05d",score);//スコア表示座標
-
+	for (int i = 0; i < shotCount; i++)
+	{
+		DrawExtendGraph(660 + i * 130,20,782 + i * 130,120,cameraImage,TRUE);
+	}
 	if (showRule == true)
 	{
 		SetDrawBlendMode(DX_BLENDMODE_ALPHA, ruleAlpha);
